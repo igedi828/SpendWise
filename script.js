@@ -1,42 +1,99 @@
 
-// SpendWise Budget Information
+// SpendWise Budget Tracker
 
-// Collect user input
-let monthlyBudget = Number(prompt("Enter your monthly budget in KSh:"));
+// Store monthly income and expenses
+let monthlyIncome = 50000;
+let expenses = [];
 
-let foodExpense = Number(prompt("Enter food expenses:"));
+// Get HTML elements
+const budgetInput = document.getElementById("budget");
+const expenseForm = document.getElementById("expense-form");
+const expenseList = document.getElementById("expense-list");
 
-let transportExpense = Number(prompt("Enter transport expenses:"));
+const totalIncomeDisplay = document.getElementById("total-income");
+const totalExpensesDisplay = document.getElementById("total-expenses");
+const balanceDisplay = document.getElementById("balance");
+const budgetMessage = document.getElementById("budget-message");
 
-let rentExpense = Number(prompt("Enter rent expenses:"));
+// Function to update the dashboard
+function updateDashboard() {
 
-// Function to calculate total expenses
-function calculateTotalExpenses(food, transport, rent) {
-    return food + transport + rent;
+    let totalExpenses = 0;
+
+    // Loop through all expenses
+    for (let i = 0; i < expenses.length; i++) {
+        totalExpenses += expenses[i].amount;
+    }
+
+    let balance = monthlyIncome - totalExpenses;
+    let monthlyBudget = Number(budgetInput.value);
+
+    // Update summary cards
+    totalIncomeDisplay.textContent = "KSh " + monthlyIncome.toLocaleString();
+    totalExpensesDisplay.textContent = "KSh " + totalExpenses.toLocaleString();
+    balanceDisplay.textContent = "KSh " + balance.toLocaleString();
+
+    // Conditional statements for budget feedback
+    if (totalExpenses > monthlyBudget) {
+        budgetMessage.textContent = "Warning! You have exceeded your monthly budget.";
+    } else if (totalExpenses === monthlyBudget) {
+        budgetMessage.textContent = "You have reached your monthly budget.";
+    } else {
+        budgetMessage.textContent = "Good job! You are within your monthly budget.";
+    }
+
+    // Display expenses on the webpage
+    expenseList.innerHTML = "";
+
+    if (expenses.length === 0) {
+        expenseList.textContent = "No expenses added yet.";
+    } else {
+
+        for (let i = 0; i < expenses.length; i++) {
+
+            const expenseItem = document.createElement("p");
+
+            expenseItem.textContent =
+                expenses[i].name + " - KSh " +
+                expenses[i].amount.toLocaleString() +
+                " - " + expenses[i].category;
+
+            expenseList.appendChild(expenseItem);
+        }
+    }
 }
 
-// Function to calculate remaining balance
-function calculateRemainingBalance(budget, expenses) {
-    return budget - expenses;
-}
+// Handle adding new expenses
+expenseForm.addEventListener("submit", function(event) {
 
-// Perform calculations
-let totalExpenses = calculateTotalExpenses(
-    foodExpense,
-    transportExpense,
-    rentExpense
-);
+    event.preventDefault();
 
-let remainingBalance = calculateRemainingBalance(
-    monthlyBudget,
-    totalExpenses
-);
+    const expenseName = document.getElementById("expense-name").value.trim();
+    const expenseAmount = Number(document.getElementById("expense-amount").value);
+    const expenseCategory = document.getElementById("expense-category").value;
 
-// Display results
-console.log("===== SPENDWISE BUDGET SUMMARY =====");
-console.log("Monthly Budget: KSh", monthlyBudget);
-console.log("Food Expenses: KSh", foodExpense);
-console.log("Transport Expenses: KSh", transportExpense);
-console.log("Rent Expenses: KSh", rentExpense);
-console.log("Total Expenses: KSh", totalExpenses);
-console.log("Remaining Balance: KSh", remainingBalance);
+    if (expenseName === "" || expenseAmount <= 0 || expenseCategory === "") {
+        alert("Please enter valid expense information.");
+        return;
+    }
+
+    // Store expense in the array
+    expenses.push({
+        name: expenseName,
+        amount: expenseAmount,
+        category: expenseCategory
+    });
+
+    // Update dashboard
+    updateDashboard();
+
+    // Clear form
+    expenseForm.reset();
+});
+
+// Update budget when user changes it
+budgetInput.addEventListener("input", updateDashboard);
+
+// Display initial dashboard
+updateDashboard();
+
