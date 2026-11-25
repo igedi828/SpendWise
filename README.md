@@ -1,9 +1,28 @@
 # SpendWise Budget Tracker
 
-## Project Description
+## 1. Project Description
 SpendWise is a simple budgeting application that helps users manage their income, track expenses, and monitor their spending.
 
-## Improvements Made This Week
+The application allows users to enter expenses, set a monthly budget, calculate total expenses, and monitor their remaining balance.
+
+## 2. Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Git and GitHub
+- Netlify
+
+## 3. GitHub Repository Information
+GitHub Repository: https://github.com/igedi828/SpendWise
+
+The project source files are stored in a public GitHub repository.
+
+## 4. Live Netlify Website URL
+Live Website: https://spendwise-yru9.netlify.app
+
+The application is hosted on Netlify and is publicly accessible.
+
+## 5. Improvements Made
 - Added an interactive expense form.
 - Added a monthly budget input.
 - Added automatic calculation of total expenses and remaining balance.
@@ -11,41 +30,49 @@ SpendWise is a simple budgeting application that helps users manage their income
 - Enabled users to add multiple expense records.
 - Displayed expense records directly on the dashboard.
 
-## JavaScript Concepts Used
+## 6. JavaScript Concepts Used
 
-### 1. Conditional Statements
+### 6.1 Conditional Statements
 Conditional statements (`if`, `else if`, and `else`) check spending against the monthly budget and display appropriate feedback.
 
-### 2. Arrays
+### 6.2 Arrays
 An array called `expenses` stores multiple expense records, including the expense name, amount, and category.
 
-### 3. Loops
-A `for` loop processes expense records to calculate total expenses and display them on the webpage.
+### 6.3 Loops
+A `for` loop processes expense records to calculate total expenses.
 
-### 4. DOM Manipulation
+### 6.4 DOM Manipulation
 DOM manipulation updates dashboard information, including total expenses, balance, budget status, and expense records.
 
-### 5. Event Listeners
-Event listeners respond to user actions. The expense form listens for submissions, while the budget input listens for changes.
+### 6.5 Event Listeners
+Event listeners respond to user actions, such as submitting the expense form and changing the monthly budget.
 
-## Challenges Encountered and Solutions
-- **Challenge:** Displaying expenses dynamically on the webpage.
-  **Solution:** Used DOM manipulation and `createElement()` to display expense records.
+## 7. Deployment Process Summary
+1. Prepared the SpendWise project files.
+2. Uploaded the project to a public GitHub repository.
+3. Connected the GitHub repository to Netlify.
+4. Deployed the application using Netlify with plain HTML and no build command.
+5. Obtained a live Netlify website address.
+6. Changed the dashboard heading and pushed the changes to GitHub.
+7. Verified that Netlify automatically deployed the latest changes from the main branch.
+8. Tested the live website successfully.
 
-- **Challenge:** Calculating expenses from multiple records.
-  **Solution:** Used arrays and loops to store and process expense information.
+## 8. Challenges Encountered During Deployment
+- **Challenge:** Connecting GitHub to Netlify.
+  **Solution:** Authorized Netlify to access the SpendWise GitHub repository.
 
-- **Challenge:** Providing feedback when the budget is exceeded.
-  **Solution:** Used conditional statements to compare expenses with the monthly budget.
+- **Challenge:** Finding the deployment information on Netlify.
+  **Solution:** Used the Netlify Apps and Versions sections to locate deployment records.
 
-- **Challenge:** Updating dashboard information after user actions.
-  **Solution:** Created an `updateDashboard()` function to refresh the displayed information.
+- **Challenge:** Verifying automatic deployment.
+  **Solution:** Updated the dashboard heading, pushed the changes to GitHub, and confirmed that Netlify published the new version.
 
-## Technologies Used
-- HTML
-- CSS
-- JavaScript
-- Git and GitHub
+## 9. Lessons Learned
+- How to deploy a website using Netlify.
+- How to connect GitHub repositories to Netlify.
+- How to publish a website using a free Netlify subdomain.
+- How automatic deployment works when changes are pushed to GitHub.
+- The importance of testing a live website after deployment.
 
-## Conclusion
-SpendWise demonstrates how JavaScript can make a budgeting application interactive through decision-making, arrays, loops, DOM manipulation, and event handling.
+## 10. Conclusion
+SpendWise demonstrates how HTML, CSS, and JavaScript can be used to develop an interactive budgeting application. Through this project, I gained practical experience in version control, website hosting, deployment, and automatic updates using GitHub and Netlify.
