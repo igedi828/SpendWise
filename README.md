@@ -21,3 +21,19 @@ Provides information about the project and explains the purpose of each file.
 
 ## Author
 Ibrahim Gedi
+## JavaScript Concepts Implemented
+
+### 1. Variables
+Used let to store the monthly budget, food expenses, transport expenses, rent expenses and remaining balance.
+
+### 2. User Input
+Used prompt() to collect budgeting information from users.
+
+### 3. Calculations
+Used addition to calculate total expenses and subtraction to calculate the remaining balance.
+
+### 4. Functions
+Created calculateTotalExpenses() and calculateRemainingBalance() to organize reusable calculations.
+
+### 5. Output
+Used console.log() to display the budget summary in the browser console.
